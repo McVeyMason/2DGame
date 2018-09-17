@@ -10,19 +10,21 @@ public class Color {
 	
 	
 	/**
-	 * @param red
-	 * @param green
-	 * @param blue
-	 * @return
+	 * @param red amount of red in color
+	 * @param green amount of green in color
+	 * @param blue amount of blue in color
+	 * @return The RGB integer.
 	 */
 	public static int getRGBInt(int red, int green, int blue) {
 		return (red * 65536) + (green * 256) + blue;
 	}
 
 	/**
-	 * @param color0
-	 * @param color1
-	 * @return
+	 * Uses RGB int format.
+	 * 
+	 * @param color0 The first color you want to average.
+	 * @param color1 The second color you want to average.
+	 * @return The average of the colors
 	 */
 	public static int colorAverage(int color0, int color1) {
 		int color0Red = (color0 - (color0 % 65536)) / 65536;

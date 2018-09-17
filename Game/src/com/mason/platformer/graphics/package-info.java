@@ -11,9 +11,12 @@
  * @author Mason
  *
  * @see com.mason.platformer.graphics.Display
+ * Dispay
  * @see com.mason.platformer.graphics.Screen
+ * Screen
  * @see com.mason.platformer.game.map.Level
+ * Level
  * @see com.mason.platformer.game.Player
- * 
+ * Player
  */
 package com.mason.platformer.graphics;

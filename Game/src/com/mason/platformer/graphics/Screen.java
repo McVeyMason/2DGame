@@ -11,6 +11,10 @@ import com.mason.platformer.graphics.texture.Color;
  */
 public class Screen extends Render {
 
+	/**
+	 * The <code>Player</code> the game uses.
+	 * @see Player
+	 */
 	public static Player player;
 	private Render screen;
 	private Level currentLevel;
@@ -116,7 +120,7 @@ public class Screen extends Render {
 							&& x >= player.getXPos() - levelXPos
 							&& x < player.getXPos() + player.getWidth() - levelXPos) {
 						if (player.getTile(xpix, ypix) == null
-								|| player.getTile(xpix, ypix).getTileType().isTansulcent() == false) {
+								|| player.getTile(xpix, ypix).getTileType().isTranslucent() == false) {
 							render.pixels[pix] = player.getColors()[xpix][ypix];
 						} else
 							render.pixels[pix] = Color.colorAverage(player.getColors()[xpix][ypix], render.pixels[pix]);
@@ -137,7 +141,7 @@ public class Screen extends Render {
 					if (y >= player.getYPos() && y < player.getYPos() + player.getHeight()
 							&& x >= render.width - 300 - player.getWidth() && x < render.width - 300) {
 						if (player.getTile(xpix, ypix) == null
-								|| player.getTile(xpix, ypix).getTileType().isTansulcent() == false) {
+								|| player.getTile(xpix, ypix).getTileType().isTranslucent() == false) {
 							render.pixels[pix] = player.getColors()[xpix][ypix];
 						} else
 							render.pixels[pix] = Color.colorAverage(player.getColors()[xpix][ypix], render.pixels[pix]);
@@ -158,7 +162,7 @@ public class Screen extends Render {
 					if (y >= player.getYPos() && y < player.getYPos() + player.getHeight()
 							&& x <= 300 + player.getWidth() && x > 300) {
 						if (player.getTile(xpix, ypix) == null
-								|| player.getTile(xpix, ypix).getTileType().isTansulcent() == false) {
+								|| player.getTile(xpix, ypix).getTileType().isTranslucent() == false) {
 							render.pixels[pix] = player.getColors()[xpix][ypix];
 						} else
 							render.pixels[pix] = Color.colorAverage(player.getColors()[xpix][ypix], render.pixels[pix]);

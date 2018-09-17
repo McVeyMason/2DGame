@@ -10,6 +10,9 @@ import com.mason.platformer.game.input.InputProcesser;
  *
  */
 public class Game {
+	/**
+	 * The current time. Updates with ticks.
+	 */
 	public int time;
 
 	private InputProcesser process;
