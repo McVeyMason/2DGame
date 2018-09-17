@@ -1,0 +1,78 @@
+package com.mason.platformer.game;
+
+import com.mason.platformer.graphics.texture.Texture;
+
+/**
+ * 
+ * @author Mason
+ *
+ */
+public class TileType {
+
+	public static final TileType AIR = new TileType(Texture.AIR, false, false, false, 0.1f);
+	public static final TileType BRICK = new TileType(Texture.BRICK, true, false, false, 1f);
+	public static final TileType DIRT = new TileType(Texture.DIRT, true, false, false, 1f);
+	public static final TileType GOLD = new TileType(Texture.GOLD, true, false, false, 1f);
+	public static final TileType GRASS = new TileType(Texture.GRASS, true, false, false, 1f);
+	public static final TileType ICE = new TileType(Texture.ICE, true, false, true, 0.05f);
+	public static final TileType SPECIAL = new TileType(Texture.SPECIAL, true, false, false, 1f);
+	public static final TileType WATER = new TileType(Texture.WATER, false, true, false, 2f);
+
+	/**
+	 * 
+	 */
+	public static final TileType[] TYPES = { AIR, BRICK, DIRT, GOLD, GRASS, ICE, SPECIAL, WATER };
+
+	private final Texture textue;
+	private final boolean isSolid;
+	private final boolean isTansulcent;
+	private final boolean isSilppery;
+	private final int friction;
+
+	/**
+	 * Defines a tile type with color and if it is solid.
+	 * 
+	 * @param color   The color of the tile type.
+	 * @param isSolid If the tile type is solid.
+	 */
+	public TileType(Texture textue, boolean isSolid, boolean isTansulcent, boolean isSilppery, float friction) {
+		this.textue = textue;
+		this.isSolid = isSolid;
+		this.isTansulcent = isTansulcent;
+		this.isSilppery = isSilppery;
+		this.friction = friction;
+	}
+
+	/**
+	 * 
+	 * @return The Texture of the tile type.
+	 */
+	public int[][] getColors() {
+		return this.textue.getColors();
+	}
+
+	/**
+	 * 
+	 * @return If the tile type is solid.
+	 */
+	public boolean isSolid() {
+		return this.isSolid;
+	}
+
+	public boolean isTansulcent() {
+		return isTansulcent;
+	}
+
+	public boolean isSilppery() {
+		return isSilppery;
+	}
+	
+	public static int getTileNum(TileType tile) {
+		for ( int i = 0; i < TYPES.length;i++) {
+			if (TYPES[i] == tile) {
+				return i;
+			}
+		}
+		return 0;
+	}
+}

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;3DEnvironment&apos; to &apos;Game&apos;" description="Rename resource &apos;3DEnvironment&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="/3DEnvironment" name="Game" stamp="1534210410381" updateReferences="true"/>
+</session>

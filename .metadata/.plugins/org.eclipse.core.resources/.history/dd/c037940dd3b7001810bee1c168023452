@@ -1,0 +1,201 @@
+package com.mason.platformer.graphics;
+
+import com.mason.platformer.game.Player;
+import com.mason.platformer.game.map.Level;
+import com.mason.platformer.graphics.texture.Color;
+
+/**
+ * 
+ * @author Mason
+ *
+ */
+public class Screen extends Render {
+
+	public static Player player;
+	private Render screen;
+	private Level currentLevel;
+	private static int levelXPos;
+
+	/**
+	 * Creates a screen with a width and a height.
+	 * 
+	 * @param width  Width of the screen.
+	 * @param height Height of the screen.
+	 */
+	public Screen(int width, int height) {
+		super(width, height);
+		currentLevel = Level.level0;
+
+		Level.level0.createLevels();
+
+		player = new Player(0, 0, 63, 127, currentLevel);
+		screen = new Render(width, height);
+		levelXPos = 0;
+
+		for (int i = 0; i < screen.width * screen.height; i++) {
+			screen.pixels[i] = -1;
+		}
+	}
+
+	/**
+	 * Renders all the renders.
+	 */
+	public void render() {
+//		for (int i = 0; i < width * height; i++) {
+//			pixels[i] = 0;
+//		}
+
+		int t = (int) System.currentTimeMillis() / 10;
+
+		loadLevel(player.getCurrentLevel(), screen, levelXPos, 0);
+		loadPlayer(screen, player);
+		loadBackground(screen, player, Math.abs(t));
+		draw(screen, 0, 0);
+	}
+
+	/**
+	 * Loads a level to a render.
+	 * 
+	 * @param level  The level you want to load.
+	 * @param render The render you want to load the level to.
+	 * @param xPos   The x pixel in the level you want to render from.
+	 * @param yPos   The y pixel in the level you want to render from.
+	 */
+	private void loadLevel(Level level, Render render, int xPos, int yPos) {
+		/*
+		 * xPos and yPos cannot be less than 1. Should not be a problem unless you wish
+		 * to render past edge of level.
+		 */
+		int pix = yPos * render.width;
+		for (int p = 0; p < yPos * render.width; p++) {
+			render.pixels[p] = -1;
+		}
+		for (int y = 0; y < level.getHeight(); y++) {
+			for (int byp = 0; byp < level.getTileHeight(); byp++) {
+				for (int x = 0; x < level.getWidth(); x++) {
+					for (int bxp = 0; bxp < level.getTileWidth(); bxp++) {
+						if (xPos <= (x * level.getTileWidth() + bxp)
+								&& (xPos + render.width) > (x * level.getTileWidth() + bxp)
+								&& yPos <= (y * level.getTileHeight() + byp)
+								&& (yPos + render.height) > (y * level.getTileHeight() + byp)) {
+							render.pixels[pix] = level.getTile(x, y).getColors()[bxp][byp];
+							if (((byp == 0 || byp == (level.getTileHeight() - 1))
+									|| (bxp == 0 || bxp == (level.getTileWidth() - 1)))
+									&& level.getTile(x, y).getTileType().isSolid() != false)
+								render.pixels[pix] = 1;
+							pix++;
+						}
+					}
+				}
+				for (int p = pix; p < ((y * level.getTileHeight() + byp) * render.width + render.width * yPos)
+						&& p < render.pixels.length; p++) {
+					render.pixels[p] = -1;
+				}
+				pix = ((y * level.getTileHeight() + byp) * render.width + render.width * yPos);
+			}
+		}
+		for (int p = pix; p < (render.height * render.width); p++) {
+			render.pixels[p] = -1;
+		}
+	}
+
+	/**
+	 * Adds the player to the render.
+	 * 
+	 * @param render The render you want to add the player to.
+	 * @param player The player you wish to load.
+	 */
+	private static void loadPlayer(Render render, Player player) {
+		int pix = 0;
+		int xpix = 0;
+		int ypix = 0;
+		if (levelXPos < 0)
+			levelXPos = 0;
+		// System.out.println(player.getXPos() + player.getWidth() - levelXPos <
+		// render.width - 300);
+		if (player.getXPos() + player.getWidth() - levelXPos < render.width - 300
+				&& (player.getXPos() - levelXPos > 300 || levelXPos == 0)) {
+			for (int y = 0; y < render.height; y++) {
+				for (int x = 0; x < render.width; x++) {
+					if (y >= player.getYPos() && y < player.getYPos() + player.getHeight()
+							&& x >= player.getXPos() - levelXPos
+							&& x < player.getXPos() + player.getWidth() - levelXPos) {
+						if (player.getTile(xpix, ypix) == null
+								|| player.getTile(xpix, ypix).getTileType().isTansulcent() == false) {
+							render.pixels[pix] = player.getColors()[xpix][ypix];
+						} else
+							render.pixels[pix] = Color.colorAverage(player.getColors()[xpix][ypix], render.pixels[pix]);
+						if (xpix < player.getColors().length - 1) {
+							xpix++;
+						} else {
+							xpix = 0;
+							ypix++;
+						}
+					}
+					pix++;
+				}
+			}
+		} else if (player.getXPos() + player.getWidth() - levelXPos >= render.width - 300) {
+			levelXPos = player.getXPos() - render.width + 300 + player.getWidth();
+			for (int y = 0; y < render.height; y++) {
+				for (int x = 0; x < render.width; x++) {
+					if (y >= player.getYPos() && y < player.getYPos() + player.getHeight()
+							&& x >= render.width - 300 - player.getWidth() && x < render.width - 300) {
+						if (player.getTile(xpix, ypix) == null
+								|| player.getTile(xpix, ypix).getTileType().isTansulcent() == false) {
+							render.pixels[pix] = player.getColors()[xpix][ypix];
+						} else
+							render.pixels[pix] = Color.colorAverage(player.getColors()[xpix][ypix], render.pixels[pix]);
+						if (xpix < player.getColors().length - 1) {
+							xpix++;
+						} else {
+							xpix = 0;
+							ypix++;
+						}
+					}
+					pix++;
+				}
+			}
+		} else if (player.getXPos() - levelXPos <= 300 && levelXPos > 0) {
+			levelXPos = player.getXPos() - 300;
+			for (int y = 0; y < render.height; y++) {
+				for (int x = 0; x < render.width; x++) {
+					if (y >= player.getYPos() && y < player.getYPos() + player.getHeight()
+							&& x <= 300 + player.getWidth() && x > 300) {
+						if (player.getTile(xpix, ypix) == null
+								|| player.getTile(xpix, ypix).getTileType().isTansulcent() == false) {
+							render.pixels[pix] = player.getColors()[xpix][ypix];
+						} else
+							render.pixels[pix] = Color.colorAverage(player.getColors()[xpix][ypix], render.pixels[pix]);
+						if (xpix < player.getColors().length - 1) {
+							xpix++;
+						} else {
+							xpix = 0;
+							ypix++;
+						}
+					}
+					pix++;
+				}
+			}
+		}
+
+	}
+
+	/**
+	 * Loads the background to 
+	 * @param render
+	 * @param player
+	 * @param offset
+	 */
+	public static void loadBackground(Render render, Player player, int offset) {
+		int pix = 0;
+		for (int y = 0; y < render.height; y++) {
+			for (int x = 0; x < render.width; x++) {
+				if (render.pixels[pix] == 0)
+					render.pixels[pix] = player.getCurrentLevel().getBackground().getColors()[(x + offset + levelXPos)
+							% player.getCurrentLevel().getBackground().getColors().length][y];
+				pix++;
+			}
+		}
+	}
+}
