@@ -10,10 +10,10 @@ import java.awt.image.DataBufferInt;
 import javax.swing.JFrame;
 
 import com.mason.platformer.game.Game;
-import com.mason.platformer.input.InputHandler;
+import com.mason.platformer.game.input.InputHandler;
 
 /**
- * Main class; Creates canvas and runs main loop.
+ * Main class; Creates canvas and runs main loop. Extends {@link java.awt.Canvas}
  * 
  * @author Mason
  *

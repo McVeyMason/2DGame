@@ -1,0 +1,9 @@
+/**
+ * 
+ */
+/**
+ * This package houses the graphical workings of the game. This includes the <code>Display</code>:{@link com.mason.platformer.graphics.Display}, which makes the and processing the 
+ * @author Mason
+ *
+ */
+package com.mason.platformer.graphics;

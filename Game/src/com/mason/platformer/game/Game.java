@@ -2,7 +2,7 @@ package com.mason.platformer.game;
 
 import java.awt.event.KeyEvent;
 
-import com.mason.platformer.input.InputProcesser;
+import com.mason.platformer.game.input.InputProcesser;
 
 /**
  * 

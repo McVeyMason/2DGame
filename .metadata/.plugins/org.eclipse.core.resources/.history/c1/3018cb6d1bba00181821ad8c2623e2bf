@@ -1,0 +1,14 @@
+/**
+ * 
+ */
+/**
+ * This package houses the graphical workings of the game. 
+ * This includes the <code>Display</code>:{@link com.mason.platformer.graphics.Display}, 
+ * which makes the main window, and processes the <code>map</code>:{@link com.mason.platformer.game.map.Level},
+ * and <code>Player</code>:{@link com.mason.platformer.game.Player} 
+ * @author Mason
+ *
+ * @see com.mason.platformer.graphics.Display
+ * 
+ */
+package com.mason.platformer.graphics;
