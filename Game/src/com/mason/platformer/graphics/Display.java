@@ -115,6 +115,7 @@ public class Display extends Canvas implements Runnable {
 	/**
 	 * Main game loop. Renders game and detects input.
 	 */
+	@Override
 	public void run() {
 		@SuppressWarnings("unused")
 		int frames = 0;

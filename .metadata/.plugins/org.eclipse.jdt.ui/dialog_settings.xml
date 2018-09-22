@@ -19,8 +19,8 @@
 		<item value="false" key="expanded6"/>
 		<item value="false" key="expanded5"/>
 		<item value="false" key="expanded8"/>
-		<item value="false" key="expanded7"/>
-		<item value="true" key="expanded0"/>
+		<item value="true" key="expanded7"/>
+		<item value="false" key="expanded0"/>
 	</section>
 	<section name="org.eclipse.jdt.internal.ui.packageview.PackageExplorerPart">
 		<item value="1" key="layout"/>

@@ -2,6 +2,8 @@
  * 
  */
 /**
+ * Processes the input of the player.
+ * 
  * @author Mason
  *
  */
