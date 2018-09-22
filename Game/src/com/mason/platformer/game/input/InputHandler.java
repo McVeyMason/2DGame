@@ -22,17 +22,17 @@ public class InputHandler implements KeyListener, MouseListener, FocusListener, 
 
 	@Override
 	public void mouseDragged(MouseEvent e) {
-
+		//nothing to do at the moment
 	}
 
 	@Override
 	public void mouseMoved(MouseEvent e) {
-
+		//nothing to do at the moment
 	}
 
 	@Override
 	public void focusGained(FocusEvent e) {
-
+		//nothing to do at the moment
 	}
 
 	@Override
@@ -44,27 +44,27 @@ public class InputHandler implements KeyListener, MouseListener, FocusListener, 
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-
+		//nothing to do at the moment
 	}
 
 	@Override
 	public void mouseEntered(MouseEvent e) {
-
+		//nothing to do at the moment
 	}
 
 	@Override
 	public void mouseExited(MouseEvent e) {
-
+		//nothing to do at the moment
 	}
 
 	@Override
 	public void mousePressed(MouseEvent e) {
-
+		//nothing to do at the moment
 	}
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
-
+		//nothing to do at the moment
 	}
 
 	@Override
@@ -86,7 +86,7 @@ public class InputHandler implements KeyListener, MouseListener, FocusListener, 
 
 	@Override
 	public void keyTyped(KeyEvent e) {
-
+		//nothing to do at the moment
 	}
 
 }

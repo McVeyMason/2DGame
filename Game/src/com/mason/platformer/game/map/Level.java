@@ -26,14 +26,17 @@ public class Level {
 	public static Level level0 = new Level(new File("res\\maps\\level0.json"), 64, 64, Texture.BACKGROUND_SKY);
 
 	/**
-	 * A level is a grid of <code>Tiles</code> that the <code>Player</code> interacts with.
+	 * A level is a grid of <code>Tiles</code> that the <code>Player</code>
+	 * interacts with. When creating a level a scanner parses a .json file, using
+	 * integer for each tile type.
 	 * <p>
+	 * 
 	 * @param file       The location of the level.
 	 * @param tileWidth  The width of each tile.
 	 * @param tileHeight The height of each tile.
 	 * @param background The background texture of the level.
-	 * @see com.mason.platformer.game.map.Tile
-	 * @see com.mason.platformer.game.Player
+	 * @see com.mason.platformer.game.map.Tile Tile
+	 * @see com.mason.platformer.game.Player Player
 	 */
 	public Level(File file, int tileWidth, int tileHeight, Texture background) {
 		try (Scanner scanner = new Scanner(file);) {
@@ -81,16 +84,21 @@ public class Level {
 	}
 
 	/**
+	 * This gets the tile at the coordinate (x,y) in the level. This is good for
+	 * getting the properties of the tile/<code>tileType</code>.
 	 * 
-	 * @param x
-	 * @param y
-	 * @return
+	 * @param x The x coordinate of the tile.
+	 * @param y The y coordinate of the tile.
+	 * @return The tile at the coordinate (x,y).
+	 * @see TileType
 	 */
 	public Tile getTile(int x, int y) {
 		return this.tiles[x][y];
 	}
 
 	/**
+	 * This gives the width of the level. This can be used for testing the width of
+	 * level.
 	 * 
 	 * @return The width of the level in tiles.
 	 */

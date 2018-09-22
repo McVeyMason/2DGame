@@ -67,7 +67,7 @@ public class Player {
 	}
 
 	/**
-	 * Player getter.
+	 * Gets the current y coordinate of the player.
 	 * 
 	 * @return The y position of the player.
 	 */
@@ -85,35 +85,36 @@ public class Player {
 	}
 
 	/**
-	 * Player getter.
+	 * Gets the height of the player in pixels.
 	 * 
-	 * @return
+	 * @return The height of the player.
 	 */
 	public int getHeight() {
 		return height;
 	}
 
 	/**
-	 * Player getter.
+	 * Gets the width of the player in pixels.
 	 * 
-	 * @return
+	 * @return The width of the player.
 	 */
 	public int getWidth() {
 		return width;
 	}
 
 	/**
-	 * Player getter.
+	 * Gets the current x velocity of the player.
 	 * 
-	 * @return
+	 * @return The x velocity of the player.
 	 */
 	public static float getXVelocity() {
 		return xVelocity;
 	}
 
 	/**
+	 * Sets the current x velocity of the player.
 	 * 
-	 * @param xVelocity
+	 * @param xVelocity The x velocity of the player.
 	 */
 	public void setXVelocity(float xVelocity) {
 		Player.xVelocity = xVelocity;
@@ -210,8 +211,8 @@ public class Player {
 
 	/**
 	 * 
-	 * @param xRight
-	 * @return
+	 * @param xRight The offset to the right.
+	 * @return The tile to the right of the player.
 	 */
 	public boolean contactRight(int xRight) {
 		int tileHeight = currentLevel.getTileHeight();
@@ -233,8 +234,8 @@ public class Player {
 
 	/**
 	 * 
-	 * @param xLeft
-	 * @return
+	 * @param xLeft The offset towards the left.
+	 * @return The tile to the left of the player.
 	 */
 	public boolean contactLeft(int xLeft) {
 		int tileHeight = currentLevel.getTileHeight();
@@ -256,7 +257,7 @@ public class Player {
 
 	/**
 	 * 
-	 * @return
+	 * @return The tile directly down from the player.
 	 */
 	public TileType tileDown() {
 		int tileHeight = currentLevel.getTileHeight();

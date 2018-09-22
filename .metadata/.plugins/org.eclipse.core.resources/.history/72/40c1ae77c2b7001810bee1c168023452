@@ -1,9 +1,0 @@
-package com.mason.platformer.game;
-
-public class GameState {
-
-	public GameState() {
-		// TODO Auto-generated constructor stub
-	}
-
-}

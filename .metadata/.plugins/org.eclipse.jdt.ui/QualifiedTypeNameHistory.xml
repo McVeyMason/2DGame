@@ -25,4 +25,6 @@
 <fullyQualifiedTypeName name="com.mason.platformer.game.Player"/>
 <fullyQualifiedTypeName name="com.mason.platformer.graphics.Screen"/>
 <fullyQualifiedTypeName name="com.mason.platformer.game.map.TileType"/>
+<fullyQualifiedTypeName name="java.lang.SuppressWarnings"/>
+<fullyQualifiedTypeName name="java.lang.Override"/>
 </qualifiedTypeNameHistroy>
