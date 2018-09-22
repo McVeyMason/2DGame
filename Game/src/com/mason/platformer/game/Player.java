@@ -1,6 +1,8 @@
 package com.mason.platformer.game;
 
 import com.mason.platformer.game.map.Level;
+import com.mason.platformer.game.map.Tile;
+import com.mason.platformer.game.map.TileType;
 
 /**
  * 
@@ -185,9 +187,7 @@ public class Player {
 
 	/**
 	 * 
-	 * @param tiles
-	 * @param tileWidth
-	 * @param tileHeight
+	 * @param yDown The y amount in pixels down from the <code>Player</code>
 	 * @return If the player is touching a tile.
 	 */
 	public boolean contactDown(int yDown) {

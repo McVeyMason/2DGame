@@ -4,8 +4,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-import com.mason.platformer.game.Tile;
-import com.mason.platformer.game.TileType;
 import com.mason.platformer.graphics.texture.Texture;
 
 /**
@@ -22,12 +20,20 @@ public class Level {
 	private int tileHeight;
 	private final Texture background;
 
+	/**
+	 * 
+	 */
 	public static Level level0 = new Level(new File("res\\maps\\level0.json"), 64, 64, Texture.BACKGROUND_SKY);
 
 	/**
-	 * 
+	 * A level is a grid of <code>Tiles</code> that the <code>Player</code> interacts with.
+	 * <p>
+	 * @param file       The location of the level.
 	 * @param tileWidth  The width of each tile.
 	 * @param tileHeight The height of each tile.
+	 * @param background The background texture of the level.
+	 * @see com.mason.platformer.game.map.Tile
+	 * @see com.mason.platformer.game.Player
 	 */
 	public Level(File file, int tileWidth, int tileHeight, Texture background) {
 		try (Scanner scanner = new Scanner(file);) {
@@ -57,12 +63,13 @@ public class Level {
 			int y = 0;
 			while (scanner.hasNext()) {
 				String token = scanner.next();
-				//System.out.println(token.toCharArray()[0]);
+				// System.out.println(token.toCharArray()[0]);
 				if (token.toCharArray()[0] == ':') {
 					y++;
 					x = -1;
 				} else
-					tiles[x][y] = new Tile(x * tileWidth, y * tileHeight, tileWidth, tileHeight, TileType.TYPES[Integer.parseInt(token)]);
+					tiles[x][y] = new Tile(x * tileWidth, y * tileHeight, tileWidth, tileHeight,
+							TileType.TYPES[Integer.parseInt(token)]);
 				x++;
 			}
 		} catch (FileNotFoundException e) {
@@ -117,7 +124,7 @@ public class Level {
 
 	/**
 	 * 
-	 * @return
+	 * @return The background texture.
 	 */
 	public Texture getBackground() {
 		return background;

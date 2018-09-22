@@ -15,20 +15,50 @@ import javax.imageio.ImageIO;
  */
 public class Texture {
 
-	
+	/**
+	 * The air texture.
+	 */
 	public static final Texture AIR = new Texture(new File("res\\textures/tiles/air.png"));
+	/**
+	 * The brick texture.
+	 */
 	public static final Texture BRICK = new Texture(new File("res\\textures/tiles/brick.png"));
+	/**
+	 * The dirt texture.
+	 */
 	public static final Texture DIRT = new Texture(new File("res\\textures/tiles/dirt.png"));
+	/**
+	 * The gold texture.
+	 */
 	public static final Texture GOLD = new Texture(new File("res\\textures/tiles/gold.png"));
+	/**
+	 * The grass texture.
+	 */
 	public static final Texture GRASS = new Texture(new File("res\\textures/tiles/grass.png"));
+	/**
+	 * The ice texture.
+	 */
 	public static final Texture ICE = new Texture(new File("res\\textures/tiles/ice.png"));
+	/**
+	 * The null texture.
+	 */
 	public static final Texture NULL = new Texture(new File("res\\textures/tiles/null.png"));
+	/**
+	 * The special texture.
+	 */
 	public static final Texture SPECIAL = new Texture(new File("res\\textures/tiles/special.png"));
+	/**
+	 * The water texture.
+	 */
 	public static final Texture WATER = new Texture(new File("res\\textures/tiles/water.png"));
-	
+
+	/**
+	 * The sky background.
+	 */
 	public static final Texture BACKGROUND_SKY = new Texture(new File("res\\textures/backgrounds/background_sky.png"));
 
-	private final int[][] colors;
+	private final File file;
+	private final int[][] textureColors;
 	private final Image texture;
 
 	/**
@@ -37,15 +67,18 @@ public class Texture {
 	 * @param file texture file
 	 */
 	public Texture(File file) {
+		this.file = file;
 		this.texture = loadImage(file);
-		this.colors = pixelFromImage(texture);
+		this.textureColors = pixelFromImage(texture);
 	}
 
 	/**
-	 * @return
+	 * Gets the pixel map of the texture in RGB color format.
+	 * 
+	 * @return The color of the pixels in the image.
 	 */
 	public int[][] getTexture() {
-		return this.colors;
+		return this.textureColors;
 	}
 
 	private static int[][] pixelFromImage(Image image) {
@@ -80,5 +113,14 @@ public class Texture {
 			e.printStackTrace();
 		}
 		return image;
+	}
+
+	/**
+	 * Gets the file location of the texture.
+	 * 
+	 * @return texture file location
+	 */
+	public File getFile() {
+		return file;
 	}
 }

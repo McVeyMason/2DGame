@@ -5,10 +5,8 @@
 <fullyQualifiedTypeName name="com.mason.environment.game.Level"/>
 <fullyQualifiedTypeName name="com.mason.environment.graphics.Color"/>
 <fullyQualifiedTypeName name="com.mason.platformer.graphics.Color"/>
-<fullyQualifiedTypeName name="com.mason.platformer.game.Player"/>
 <fullyQualifiedTypeName name="com.mason.platformer.game.Level"/>
 <fullyQualifiedTypeName name="javax.imageio.ImageIO"/>
-<fullyQualifiedTypeName name="com.mason.platformer.graphics.Screen"/>
 <fullyQualifiedTypeName name="com.mason.platformer.game.BlockType"/>
 <fullyQualifiedTypeName name="java.io.File"/>
 <fullyQualifiedTypeName name="javax.swing.text.html.parser.Parser"/>
@@ -23,4 +21,8 @@
 <fullyQualifiedTypeName name="com.mason.platformer.graphics.texture.Color"/>
 <fullyQualifiedTypeName name="com.mason.platformer.game.TileType"/>
 <fullyQualifiedTypeName name="java.lang.System"/>
+<fullyQualifiedTypeName name="com.mason.platformer.game.map.Level"/>
+<fullyQualifiedTypeName name="com.mason.platformer.game.Player"/>
+<fullyQualifiedTypeName name="com.mason.platformer.graphics.Screen"/>
+<fullyQualifiedTypeName name="com.mason.platformer.game.map.TileType"/>
 </qualifiedTypeNameHistroy>

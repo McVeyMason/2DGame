@@ -2,7 +2,7 @@ package com.mason.platformer.game;
 
 import java.awt.event.KeyEvent;
 
-import com.mason.platformer.input.InputProcesser;
+import com.mason.platformer.game.input.InputProcesser;
 
 /**
  * 
@@ -10,6 +10,9 @@ import com.mason.platformer.input.InputProcesser;
  *
  */
 public class Game {
+	/**
+	 * The current time. Updates with ticks.
+	 */
 	public int time;
 
 	private InputProcesser process;
