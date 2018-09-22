@@ -1,0 +1,42 @@
+package com.mason.platformer.graphics.texture;
+
+/**
+ *
+ * @author Mason
+ *
+ */
+public class Color {
+
+	
+	
+	/**
+	 * @param red
+	 * @param green
+	 * @param blue
+	 * @return
+	 */
+	public static int getRGBInt(int red, int green, int blue) {
+		return (red * 65536) + (green * 256) + blue;
+	}
+
+	/**
+	 * @param color0
+	 * @param color1
+	 * @return
+	 */
+	public static int colorAverage(int color0, int color1) {
+		int color0Red = (color0 - (color0 % 65536)) / 65536;
+		int color0Green = ((color0 - (color0Red * 65536)) - ((color0 - (color0Red * 65536)) % 256)) / 256;
+		int color0Blue = color0 - (color0Red * 65536) - color0Green * 256;
+
+		int color1Red = (color1 - (color1 % 65536)) / 65536;
+		int color1Green = ((color1 - (color1Red * 65536)) - ((color1 - (color1Red * 65536)) % 256)) / 256;
+		int color1Blue = color1 - (color1Red * 65536) - color1Green * 256;
+
+		int newRed = (color0Red + color1Red) / 2;
+		int newGreen = (color0Green + color1Green) / 2;
+		int newBlue = (color0Blue + color1Blue) / 2;
+
+		return getRGBInt(newRed, newGreen, newBlue);
+	}
+}

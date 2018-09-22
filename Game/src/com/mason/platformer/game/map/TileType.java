@@ -23,12 +23,12 @@ import com.mason.platformer.graphics.texture.Texture;
 public class TileType {
 
 	public static final TileType AIR = new TileType(Texture.AIR, false, false, false, 0.1f);
-	public static final TileType BRICK = new TileType(Texture.BRICK, true, false, false, 1f);
+	public static final TileType BRICK = new TileType(Texture.BRICK, true, false, false, .5f);
 	public static final TileType DIRT = new TileType(Texture.DIRT, true, false, false, 1f);
-	public static final TileType GOLD = new TileType(Texture.GOLD, true, false, false, 1f);
-	public static final TileType GRASS = new TileType(Texture.GRASS, true, false, false, 1f);
+	public static final TileType GOLD = new TileType(Texture.GOLD, true, false, false, .5f);
+	public static final TileType GRASS = new TileType(Texture.GRASS, true, false, false, .75f);
 	public static final TileType ICE = new TileType(Texture.ICE, true, false, true, 0.05f);
-	public static final TileType SPECIAL = new TileType(Texture.SPECIAL, true, false, false, 1f);
+	public static final TileType SPECIAL = new TileType(Texture.SPECIAL, true, false, false, .5f);
 	public static final TileType WATER = new TileType(Texture.WATER, false, true, false, 2f);
 
 	/**

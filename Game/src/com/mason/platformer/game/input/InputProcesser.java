@@ -22,14 +22,26 @@ public class InputProcesser {
 		if (left && !right) {
 			if (Screen.player.contactLeft(5) == false) {
 				Screen.player.setXVelocity(-5f);
-			} else {
+			} else if (Screen.player.contactLeft(4) == false){
+				Screen.player.setXVelocity(-4f);
+			} else if (Screen.player.contactLeft(3) == false){
+				Screen.player.setXVelocity(-3f);
+			} else if (Screen.player.contactLeft(2) == false){
+				Screen.player.setXVelocity(-2f);
+			} else if (Screen.player.contactLeft(0) == false){
 				Screen.player.setXVelocity(-1f);
 			}
 		}
 		if (right && !left) {
 			if (Screen.player.contactRight(5) == false) {
 				Screen.player.setXVelocity(5f);
-			} else {
+			} else if (Screen.player.contactRight(4) == false){
+				Screen.player.setXVelocity(4f);
+			} else if (Screen.player.contactRight(3) == false){
+				Screen.player.setXVelocity(3f);
+			} else if (Screen.player.contactRight(2) == false){
+				Screen.player.setXVelocity(2f);
+			} else if (Screen.player.contactRight(0) == false){
 				Screen.player.setXVelocity(1f);
 			}
 		}
