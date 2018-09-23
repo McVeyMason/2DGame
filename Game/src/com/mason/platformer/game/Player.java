@@ -67,7 +67,7 @@ public class Player {
 	}
 
 	/**
-	 * Gets the current y coordinate of the player.
+	 * Player getter.
 	 * 
 	 * @return The y position of the player.
 	 */
@@ -85,36 +85,35 @@ public class Player {
 	}
 
 	/**
-	 * Gets the height of the player in pixels.
+	 * Player getter.
 	 * 
-	 * @return The height of the player.
+	 * @return
 	 */
 	public int getHeight() {
 		return height;
 	}
 
 	/**
-	 * Gets the width of the player in pixels.
+	 * Player getter.
 	 * 
-	 * @return The width of the player.
+	 * @return
 	 */
 	public int getWidth() {
 		return width;
 	}
 
 	/**
-	 * Gets the current x velocity of the player.
+	 * Player getter.
 	 * 
-	 * @return The x velocity of the player.
+	 * @return
 	 */
 	public static float getXVelocity() {
 		return xVelocity;
 	}
 
 	/**
-	 * Sets the current x velocity of the player.
 	 * 
-	 * @param xVelocity The x velocity of the player.
+	 * @param xVelocity
 	 */
 	public void setXVelocity(float xVelocity) {
 		Player.xVelocity = xVelocity;
@@ -211,8 +210,8 @@ public class Player {
 
 	/**
 	 * 
-	 * @param xRight The offset to the right.
-	 * @return The tile to the right of the player.
+	 * @param xRight
+	 * @return
 	 */
 	public boolean contactRight(int xRight) {
 		int tileHeight = currentLevel.getTileHeight();
@@ -234,8 +233,8 @@ public class Player {
 
 	/**
 	 * 
-	 * @param xLeft The offset towards the left.
-	 * @return The tile to the left of the player.
+	 * @param xLeft
+	 * @return
 	 */
 	public boolean contactLeft(int xLeft) {
 		int tileHeight = currentLevel.getTileHeight();
@@ -257,7 +256,7 @@ public class Player {
 
 	/**
 	 * 
-	 * @return The tile directly down from the player.
+	 * @return
 	 */
 	public TileType tileDown() {
 		int tileHeight = currentLevel.getTileHeight();
@@ -345,22 +344,22 @@ public class Player {
 //		System.out.println(contactRight(Math.round(xVelocity)));
 //		System.out.println(Math.round(xVelocity));
 		// right
-		if (contactRight(Math.round(xVelocity)) == false && xVelocity > 0f
+		if (contactRight(Math.round(xVelocity-1)) == false && xVelocity > 0f
 				&& xPos + width < currentLevel.getWidth() * currentLevel.getTileWidth()) {
 			xPos += Math.round(xVelocity);
-			if (xVelocity > 1f && !tileDown().isSilppery() && tileDown() != TileType.AIR)
-				xVelocity -= xVelocity / 10;
-			else if (!tileDown().isSilppery() && tileDown() != TileType.AIR)
+			if (xVelocity > .5f && !tileDown().isSilppery())
+				xVelocity -= tileDown().getFriction();
+			else if (!tileDown().isSilppery())
 				xVelocity = 0f;
 		} else if (contactRight(0) == true && xVelocity > 0f) {
 			xVelocity = 0f;
 		}
 		// left
-		if (contactLeft(Math.abs(Math.round(xVelocity))) == false && xVelocity < 0f && xPos > 0) {
+		if (contactLeft(Math.abs(Math.round(xVelocity+1))) == false && xVelocity < 0f && xPos > 0) {
 			xPos += Math.round(xVelocity);
-			if (xVelocity < -1f && !tileDown().isSilppery() && tileDown() != TileType.AIR)
-				xVelocity -= xVelocity / 10;
-			else if (!tileDown().isSilppery() && tileDown() != TileType.AIR)
+			if (xVelocity < -.5f && !tileDown().isSilppery())
+				xVelocity += tileDown().getFriction();
+			else if (!tileDown().isSilppery())
 				xVelocity = 0f;
 		} else if (contactLeft(0) == true && xVelocity < 0f) {
 			xVelocity = 0f;
