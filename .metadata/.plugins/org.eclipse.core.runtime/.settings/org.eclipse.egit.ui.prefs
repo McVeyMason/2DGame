@@ -1,5 +1,5 @@
 BranchProjectTracker__C\:\\Users\\Mason\\Documents\\Java\\2DGame\\.git_Featues=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<projects branch\="Featues">\r\n<project>\\Game</project>\r\n</projects>
-BranchProjectTracker__C\:\\Users\\Mason\\Documents\\Java\\2DGame\\.git_JavaDoc=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<projects branch\="JavaDoc">\r\n<project>\\Game</project>\r\n</projects>
+BranchProjectTracker__C\:\\Users\\Mason\\Documents\\Java\\2DGame\\.git_JavaDoc=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<projects branch\="JavaDoc"/>
 commit_dialog_history_messages=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<messages>\r\n<message>improved friction</message>\r\n<message>Added friction constant for tiles.</message>\r\n<message>Improved documentation</message>\r\n</messages>
 eclipse.preferences.version=1
 show_checkout_confirmation=false

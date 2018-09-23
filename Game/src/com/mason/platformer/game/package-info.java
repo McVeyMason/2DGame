@@ -2,7 +2,7 @@
  * 
  */
 /**
- * This package handles the 
+ * Houses the main part of the game.
  * 
  * @author Mason
  *
